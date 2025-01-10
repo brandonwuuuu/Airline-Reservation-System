@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Flight</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            position: absolute;
+            top: 40%;
+            transform: translateY(-40%);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        td {
+            color: #333;
+        }
+        caption {
+            margin: 10px 0;
+            font-size: 1.8em;
+            color: #0073e6;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Flight Search Results</caption>
+        <thead>
+            <tr>
+                <th>Flight Number</th>
+                <th>Airline Name</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Departure Country</th>
+                <th>Departure City</th>
+                <th>Departure Airport</th>
+                <th>Destination Country</th>
+                <th>Destination City</th>
+                <th>Destination Airport</th>
+                <th>Aircraft Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for flight in data %}
+            <tr>
+                <td>{{ flight[0] }}</td>
+                <td>{{ flight[1] }}</td>
+                <td>{{ flight[2] }}</td>
+                <td>{{ flight[3] }}</td>
+                <td>{{ flight[4] }}</td>
+                <td>{{ flight[5] }}</td>
+                <td>{{ flight[6] }}</td>
+                <td>{{ flight[7] }}</td>
+                <td>{{ flight[8] }}</td>
+                <td>{{ flight[9] }}</td>
+                <td><a href="#" onClick="location='/viewAirCraft?flightNo={{ flight[0] }}'">Click to view the aircraft type</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

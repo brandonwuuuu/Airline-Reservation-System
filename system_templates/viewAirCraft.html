@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirCraft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        td {
+            color: #333;
+        }
+        caption {
+            margin: 10px 0;
+            font-size: 1.8em;
+            color: #0073e6;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head> 
+<body>
+		
+    <table>
+        <caption>Aircraft</caption>
+        <tr> 
+            <th>Aircraft</th>  
+        </tr> 
+        {%for aircraft in data%} 
+        <tr> 
+            <td><a href="#" onClick="location='/viewFlightWithAirCraft?aircraftTypeId={{aircraft[2]}}'">{{aircraft[1]}} {{aircraft[0]}}</a>(click to view flights with this aircraft)</td>  
+        </tr> 
+        {%endfor%} 
+    </table>           
+</body> 
+</html>

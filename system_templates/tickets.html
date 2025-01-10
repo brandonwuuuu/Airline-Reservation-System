@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Flight</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        td {
+            color: #333;
+        }
+        caption {
+            margin: 10px 0;
+            font-size: 1.8em;
+            color: #0073e6;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>My Tickets</caption>
+        <thead>
+            <tr>
+                <th>Ticket Number</th>
+                <th>Flight Number</th>
+                <th>Class Level</th>
+                <th>Fare</th>
+                <th>Passenger Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for flight in data %}
+            <tr>
+                <td>{{ flight[0] }}</td>
+                <td><a href="#" onClick="location='/display_flight?flightNo={{ flight[1] }}'">{{ flight[1] }} Click to view flight details</a></td> 
+                <td>{{ flight[2] }}</td>
+                <td>{{ flight[3] }}</td>
+                <td>{{ flight[4] }} {{ flight[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
